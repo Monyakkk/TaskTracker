@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextBody">
+        <item name="font">@font/muller_regular</item>
+    </style>
+
+    <style name="TextBody.Type1">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextBody.Type2">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextBody.Type3">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextBody.Type4">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextHeaderType1">
+        <item name="font">@font/muller_bold</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="TextHeaderType2">
+        <item name="font">@font/muller_medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>
