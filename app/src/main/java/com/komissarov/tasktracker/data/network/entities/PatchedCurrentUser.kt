@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 class PatchedCurrentUser(
     @SerializedName("study_group")
     @Expose
-    val studyGroup: com.komissarov.tasktracker.data.network.entities.StudyGroupCode?,
+    val studyGroupCode: StudyGroupCode?,
     /**
      * Имя
      *

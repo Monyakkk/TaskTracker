@@ -68,7 +68,7 @@ object NetworkModule {
         }
     }
 
-    private const val BASE_URL = "http://78.140.241.21:8100/"
+    private const val BASE_URL = "http://78.140.241.21:8100"
     private const val AUTH_HEADER_KEY = "NeedAuth: true"
 
 }

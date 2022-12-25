@@ -27,7 +27,7 @@ class PatchedUser (
      */
     @SerializedName("study_group")
     @Expose
-    val studyGroup: Int?,
+    val studyGroupId: Int?,
     /**
      * Имя
      *

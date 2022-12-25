@@ -20,7 +20,7 @@ class CurrentUser (
      */
     @SerializedName("study_group")
     @Expose
-    val studyGroup: Any?,
+    val studyGroupId: StudyGroupCode?,
     /**
      * Имя
      *
