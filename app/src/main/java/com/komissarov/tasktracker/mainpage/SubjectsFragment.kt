@@ -1,0 +1,6 @@
+package com.komissarov.tasktracker.mainpage
+
+import androidx.fragment.app.Fragment
+
+class SubjectsFragment : Fragment() {
+}

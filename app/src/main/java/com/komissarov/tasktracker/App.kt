@@ -2,6 +2,7 @@ package com.komissarov.tasktracker
 
 import android.app.Application
 import com.komissarov.tasktracker.di.AppComponent
+import com.komissarov.tasktracker.di.DaggerAppComponent
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
