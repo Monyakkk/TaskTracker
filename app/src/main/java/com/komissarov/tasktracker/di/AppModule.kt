@@ -6,7 +6,8 @@ import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
 
 @Module
-object AppModule {
+object
+AppModule {
 
     @JvmStatic
     @Singleton
