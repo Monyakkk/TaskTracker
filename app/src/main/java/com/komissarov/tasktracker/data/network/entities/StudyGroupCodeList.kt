@@ -19,5 +19,5 @@ class StudyGroupCodeList (
 
     @SerializedName("results")
     @Expose
-    val results: List<com.komissarov.tasktracker.data.network.entities.StudyGroupCode>?,
+    val results: List<StudyGroupCode>?,
 )

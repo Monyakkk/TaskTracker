@@ -14,37 +14,9 @@ class PatchedUpdateSubject (
      *
      *
      */
-    /**
-     * Название
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Название
-     *
-     *
-     *
-     *
-     */
     @SerializedName("title")
     @Expose
     val title: String?,
-    /**
-     * ФИО преподавателя
-     *
-     *
-     *
-     *
-     */
-    /**
-     * ФИО преподавателя
-     *
-     *
-     *
-     *
-     */
     /**
      * ФИО преподавателя
      *
@@ -62,37 +34,9 @@ class PatchedUpdateSubject (
      *
      *
      */
-    /**
-     * Вид контроля
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Вид контроля
-     *
-     *
-     *
-     *
-     */
     @SerializedName("assessment_type")
     @Expose
-    val assessmentType: com.komissarov.tasktracker.data.network.entities.AssessmentTypeEnum?,
-    /**
-     * Дополнительная информация
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Дополнительная информация
-     *
-     *
-     *
-     *
-     */
+    val assessmentType: AssessmentTypeEnum?,
     /**
      * Дополнительная информация
      *
@@ -103,20 +47,6 @@ class PatchedUpdateSubject (
     @SerializedName("additional_info")
     @Expose
     val additionalInfo: String?,
-    /**
-     * Контакты преподавателя
-     *
-     *
-     * Несколько значений можно разделить запятой
-     *
-     */
-    /**
-     * Контакты преподавателя
-     *
-     *
-     * Несколько значений можно разделить запятой
-     *
-     */
     /**
      * Контакты преподавателя
      *

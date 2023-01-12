@@ -15,37 +15,9 @@ class PatchedPutTask (
      *
      *
      */
-    /**
-     * Название
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Название
-     *
-     *
-     *
-     *
-     */
     @SerializedName("title")
     @Expose
     val title: String?,
-    /**
-     * Предмет
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Предмет
-     *
-     *
-     *
-     *
-     */
     /**
      * Предмет
      *
@@ -63,20 +35,6 @@ class PatchedPutTask (
      *
      *
      */
-    /**
-     * Срок выполнения
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Срок выполнения
-     *
-     *
-     *
-     *
-     */
     @SerializedName("deadline_at")
     @Expose
     val deadlineAt: Date?,
@@ -87,37 +45,9 @@ class PatchedPutTask (
      *
      *
      */
-    /**
-     * Описание
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Описание
-     *
-     *
-     *
-     *
-     */
     @SerializedName("description")
     @Expose
     val description: String?,
-    /**
-     * Ссылки
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Ссылки
-     *
-     *
-     *
-     *
-     */
     /**
      * Ссылки
      *

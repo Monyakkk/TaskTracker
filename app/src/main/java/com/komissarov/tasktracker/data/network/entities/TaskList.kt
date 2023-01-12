@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-class TaskList (
+data class TaskList (
     /**
      *
      * (Required)
@@ -31,7 +31,7 @@ class TaskList (
      */
     @SerializedName("subject")
     @Expose
-    val subject: com.komissarov.tasktracker.data.network.entities.SubjectTitle?,
+    val subject: SubjectTitle?,
     /**
      * Срок выполнения
      *

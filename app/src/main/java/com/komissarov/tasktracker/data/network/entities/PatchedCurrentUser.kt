@@ -14,37 +14,9 @@ class PatchedCurrentUser(
      *
      *
      */
-    /**
-     * Имя
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Имя
-     *
-     *
-     *
-     *
-     */
     @SerializedName("first_name")
     @Expose
     val firstName: String?,
-    /**
-     * Фамилия
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Фамилия
-     *
-     *
-     *
-     *
-     */
     /**
      * Фамилия
      *
@@ -62,20 +34,6 @@ class PatchedCurrentUser(
      *
      *
      */
-    /**
-     * Отчество
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Отчество
-     *
-     *
-     *
-     *
-     */
     @SerializedName("middle_name")
     @Expose
     val middleName: String?,
@@ -83,20 +41,6 @@ class PatchedCurrentUser(
     @SerializedName("id")
     @Expose
     val id: Int?,
-    /**
-     * Адрес электронной почты
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Адрес электронной почты
-     *
-     *
-     *
-     *
-     */
     /**
      * Адрес электронной почты
      *

@@ -42,7 +42,7 @@ class UpdateSubject (
      */
     @SerializedName("assessment_type")
     @Expose
-    val assessmentType: com.komissarov.tasktracker.data.network.entities.AssessmentTypeEnum?,
+    val assessmentType: AssessmentTypeEnum?,
     /**
      * Дополнительная информация
      *

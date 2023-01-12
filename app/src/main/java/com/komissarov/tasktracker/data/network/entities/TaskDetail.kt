@@ -31,7 +31,7 @@ class TaskDetail(
      */
     @SerializedName("subject")
     @Expose
-    val subject: com.komissarov.tasktracker.data.network.entities.SubjectTitle?,
+    val subject: SubjectTitle?,
     /**
      * Срок выполнения
      *
@@ -91,7 +91,7 @@ class TaskDetail(
      */
     @SerializedName("files")
     @Expose
-    val files: List<com.komissarov.tasktracker.data.network.entities.TaskFile>?,
+    val files: List<TaskFile>?,
     /**
      *
      * (Required)

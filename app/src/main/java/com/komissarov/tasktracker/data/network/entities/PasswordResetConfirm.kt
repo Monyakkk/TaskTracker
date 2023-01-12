@@ -10,16 +10,6 @@ class PasswordResetConfirm(
      * (Required)
      *
      */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
     @SerializedName("uid")
     @Expose
     val uid: String?,
@@ -28,29 +18,9 @@ class PasswordResetConfirm(
      * (Required)
      *
      */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
     @SerializedName("token")
     @Expose
     val token: String?,
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
     /**
      *
      * (Required)

@@ -19,5 +19,5 @@ class SubjectListList (
 
     @SerializedName("results")
     @Expose
-    val results: List<com.komissarov.tasktracker.data.network.entities.SubjectList>?,
+    val results: List<SubjectList>?,
 )
