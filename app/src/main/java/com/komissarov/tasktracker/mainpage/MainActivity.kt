@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.komissarov.tasktracker.R
+import com.komissarov.tasktracker.subjects.SubjectsFragment
+import com.komissarov.tasktracker.tasks.TasksFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,8 +25,8 @@ class MainActivity : AppCompatActivity() {
             .setId(1)
             .setIcon(R.drawable.note)
 
-        val taskFragment = TasksFragment() //TODO
-        val subjectFragment = SubjectsFragment() //TODO
+        val taskFragment = TasksFragment()
+        val subjectFragment = SubjectsFragment()
         tabLayout.addTab(tabTask)
         tabLayout.addTab(tabSubjects)
 
@@ -35,12 +37,12 @@ class MainActivity : AppCompatActivity() {
                 when (tab.id) {
                     0 -> {
                         fragmentManager.beginTransaction()
-                            .add(R.id.fragmentContainer, taskFragment, TAG_TASKS)
+                            .replace(R.id.fragmentContainer, taskFragment, TAG_TASKS)
                             .commit()
                     }
                     1 -> {
                         fragmentManager.beginTransaction()
-                            .add(R.id.fragmentContainer, subjectFragment, TAG_SUBJECTS)
+                            .replace(R.id.fragmentContainer, subjectFragment, TAG_SUBJECTS)
                             .commit()
                     }
                 }
@@ -49,6 +51,12 @@ class MainActivity : AppCompatActivity() {
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
+
+        //todo костыль
+        tabLayout.selectTab(tabTask, false)
+        fragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, taskFragment, TAG_TASKS)
+            .commit()
     }
 
     companion object {

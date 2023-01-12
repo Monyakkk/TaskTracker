@@ -18,14 +18,17 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tabGravity="fill"
-        app:tabIndicator="@drawable/tab_indicator"
-        app:tabIndicatorAnimationMode="elastic"
+        app:tabIconTint="@color/selector_tab_main"
+        app:tabIndicator="@drawable/tab_indicator_main"
+        app:tabInlineLabel="true"
+        app:tabIndicatorColor="@null"
         app:tabIndicatorGravity="stretch"
+        app:tabRippleColor="@null"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/white" />
+        app:tabTextColor="@color/selector_tab_main" />
 </androidx.constraintlayout.widget.ConstraintLayout>

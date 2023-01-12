@@ -8,35 +8,9 @@ class CurrentUser (
      * (Required)
      *
      */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
     @SerializedName("study_group")
     @Expose
     val studyGroupId: StudyGroupCode?,
-    /**
-     * Имя
-     *
-     *
-     *
-     * (Required)
-     *
-     */
-    /**
-     * Имя
-     *
-     *
-     *
-     * (Required)
-     *
-     */
     /**
      * Имя
      *
@@ -55,37 +29,9 @@ class CurrentUser (
      *
      *
      */
-    /**
-     * Фамилия
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Фамилия
-     *
-     *
-     *
-     *
-     */
     @SerializedName("last_name")
     @Expose
     val lastName: String?,
-    /**
-     * Отчество
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Отчество
-     *
-     *
-     *
-     *
-     */
     /**
      * Отчество
      *
@@ -101,35 +47,9 @@ class CurrentUser (
      * (Required)
      *
      */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
     @SerializedName("id")
     @Expose
     val id: Int?,
-    /**
-     * Адрес электронной почты
-     *
-     *
-     *
-     * (Required)
-     *
-     */
-    /**
-     * Адрес электронной почты
-     *
-     *
-     *
-     * (Required)
-     *
-     */
     /**
      * Адрес электронной почты
      *
