@@ -1,4 +1,4 @@
-package com.komissarov.tasktracker.mainpage
+package com.komissarov.tasktracker.subjects
 
 import androidx.fragment.app.Fragment
 
