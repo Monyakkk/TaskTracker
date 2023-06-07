@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TaskTracker</string>
+    <string name="tasks">Задачи</string>
+    <string name="subjects">Предметы</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tasks"
+    android:label="@string/tasks"
+    app:startDestination="@id/tasksFragment">
+
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="com.komissarov.tasktracker.tasks.TasksFragment"
+        android:label="TasksFragment">
+        <action
+            android:id="@+id/action_tasksFragment_to_taskDetailFragment"
+            app:destination="@id/taskDetailFragment" />
+        <action
+            android:id="@+id/action_tasksFragment_to_taskCreationFragment"
+            app:destination="@id/taskCreationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskDetailFragment"
+        android:name="com.komissarov.tasktracker.tasks.taskdetails.TaskDetailsFragment"
+        android:label="TaskDetailFragment">
+        <argument
+            android:name="taskId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskCreationFragment"
+        android:name="com.komissarov.tasktracker.tasks.taskcreation.TaskCreationFragment"
+        android:label="TaskCreationFragment" />
+</navigation>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/subjects"
+    android:label="@string/subjects"
+    app:startDestination="@id/subjectsFragment">
+
+    <fragment
+        android:id="@+id/subjectsFragment"
+        android:name="com.komissarov.tasktracker.subjects.SubjectsFragment"
+        android:label="SubjectsFragment" >
+        <action
+            android:id="@+id/action_subjectsFragment_to_subjectDetailsFragment"
+            app:destination="@id/subjectDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subjectDetailsFragment"
+        android:name="com.komissarov.tasktracker.subjects.subjectdetails.SubjectDetailsFragment"
+        android:label="SubjectDetailsFragment">
+        <argument
+            android:name="subjectId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
