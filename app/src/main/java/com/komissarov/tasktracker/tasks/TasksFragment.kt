@@ -1,5 +1,6 @@
 package com.komissarov.tasktracker.tasks
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -48,6 +49,7 @@ class TasksFragment : Fragment(R.layout.fragment_tasks) {
         (requireActivity().application as App).appComponent.inject(this)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -98,7 +100,7 @@ class TasksFragment : Fragment(R.layout.fragment_tasks) {
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
 
-        tabLayout.selectTab(tabLayout.getTabAt(1))
+        tabLayout.selectTab(tabLayout.getTabAt(0))
     }
 
     private fun openTaskDetailFragment(task: TasksListItem.Task) {

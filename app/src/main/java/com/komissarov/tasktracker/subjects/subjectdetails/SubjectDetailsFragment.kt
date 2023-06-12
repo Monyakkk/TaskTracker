@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -12,6 +13,8 @@ import androidx.navigation.fragment.findNavController
 import com.komissarov.tasktracker.App
 import com.komissarov.tasktracker.R
 import com.komissarov.tasktracker.databinding.FragmentSubjectDetailsBinding
+import com.komissarov.tasktracker.tasks.taskdetails.TaskDetailsFragment
+import timber.log.Timber
 import javax.inject.Inject
 
 class SubjectDetailsFragment : Fragment(R.layout.fragment_subject_details) {
@@ -69,11 +72,29 @@ class SubjectDetailsFragment : Fragment(R.layout.fragment_subject_details) {
         binding.subjectDetailsBackArrow.setOnClickListener {
             findNavController().navigateUp()
         }
+        binding.subjectDetailsUpdate.setOnClickListener {
+            val bundle = bundleOf(
+                ARG_SUBJ_ID to subjectId.toInt(),
+                ARG_TEACHER to binding.teacherName.text,
+                ARG_TITLE to binding.subjectTitle.text,
+                ARG_ASSESMENT to binding.assessmentType.text,
+                ARG_DESCRIPTION to binding.additionalDescription.text,
+                ARG_CONTACTS to binding.teacherContacts.text
+            )
+            findNavController().navigate(
+                R.id.action_subjectDetailsFragment_to_subjectUpdateFragment,
+                bundle
+            )
+        }
         viewModel.getSubjectDetails(subjectId)
     }
 
     companion object {
-
-        const val ARG_SUBJ_ID = "subjectId"
+        const val ARG_SUBJ_ID = "subjId"
+        const val ARG_TEACHER = "name"
+        const val ARG_TITLE = "title"
+        const val ARG_ASSESMENT = "type"
+        const val ARG_DESCRIPTION = "desc"
+        const val ARG_CONTACTS = "contact"
     }
 }

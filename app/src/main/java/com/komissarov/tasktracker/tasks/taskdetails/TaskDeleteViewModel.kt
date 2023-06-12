@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.komissarov.tasktracker.CoroutineDispatchers
-import com.komissarov.tasktracker.data.network.entities.TaskDetail
 import com.komissarov.tasktracker.launchWithExceptionHandle
 import com.komissarov.tasktracker.tasks.TasksRepository
 import kotlinx.coroutines.Job
@@ -14,42 +13,19 @@ import kotlinx.coroutines.withContext
 import timber.log.Timber
 import javax.inject.Inject
 
-class TaskDetailViewModel @Inject constructor(
+class TaskDeleteViewModel @Inject constructor(
     private val tasksRepository: TasksRepository,
     private val dispatchers: CoroutineDispatchers,
 ) : ViewModel() {
 
     private val errorMessage = MutableLiveData<String>()
-    val task = MutableLiveData<TaskDetail>()
-    private var jobTaskDetails: Job? = null
-    private var jobStatus: Job? = null
+    private var jobTaskDelete: Job? = null
     private val loading = MutableLiveData<Boolean>()
 
-    fun getTaskDetails(id: Int) {
-        jobTaskDetails = viewModelScope.launch(context = dispatchers.io) {
+    fun deleteTask(id: Int) {
+        jobTaskDelete = viewModelScope.launch(context = dispatchers.io) {
             launchWithExceptionHandle {
-                tasksRepository.getTaskDetails(id)
-            }.onSuccess { result ->
-                withContext(viewModelScope.coroutineContext) {
-                    task.postValue(result)
-                    loading.value = false
-                }
-            }.onFailure {
-                withContext(viewModelScope.coroutineContext) {
-                    onError(it)
-                }
-            }
-        }
-    }
-
-    fun setStatus(id: Int, isCompleted: Boolean) {
-        jobStatus = viewModelScope.launch(context = dispatchers.io) {
-            launchWithExceptionHandle {
-                if (isCompleted) {
-                    tasksRepository.setCompleted(id)
-                } else {
-                    tasksRepository.setUncomplete(id)
-                }
+                tasksRepository.deleteTask(id)
             }.onFailure {
                 withContext(viewModelScope.coroutineContext) {
                     onError(it)
@@ -66,7 +42,6 @@ class TaskDetailViewModel @Inject constructor(
 
     override fun onCleared() {
         super.onCleared()
-        jobTaskDetails?.cancel()
-        jobStatus?.cancel()
+        jobTaskDelete?.cancel()
     }
 }

@@ -1,12 +1,15 @@
-package com.komissarov.tasktracker.tasks.taskdetails
+package com.komissarov.tasktracker.tasks.taskupdate
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.komissarov.tasktracker.CoroutineDispatchers
-import com.komissarov.tasktracker.data.network.entities.TaskDetail
+import com.komissarov.tasktracker.data.network.entities.PostTask
+import com.komissarov.tasktracker.data.network.entities.PutTask
+import com.komissarov.tasktracker.data.network.entities.SubjectList
 import com.komissarov.tasktracker.launchWithExceptionHandle
+import com.komissarov.tasktracker.subjects.SubjectsRepository
 import com.komissarov.tasktracker.tasks.TasksRepository
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -14,24 +17,24 @@ import kotlinx.coroutines.withContext
 import timber.log.Timber
 import javax.inject.Inject
 
-class TaskDetailViewModel @Inject constructor(
+class TaskUpdateViewModel @Inject constructor(
     private val tasksRepository: TasksRepository,
+    private val subjectsRepository: SubjectsRepository,
     private val dispatchers: CoroutineDispatchers,
 ) : ViewModel() {
 
     private val errorMessage = MutableLiveData<String>()
-    val task = MutableLiveData<TaskDetail>()
-    private var jobTaskDetails: Job? = null
-    private var jobStatus: Job? = null
+    val subjectList = MutableLiveData<List<SubjectList>>()
+    private var jobTaskUpdate: Job? = null
+    private var jobGettingSubjects: Job? = null
     private val loading = MutableLiveData<Boolean>()
 
-    fun getTaskDetails(id: Int) {
-        jobTaskDetails = viewModelScope.launch(context = dispatchers.io) {
+    fun updateTask(id: Int, task: PutTask) {
+        jobTaskUpdate = viewModelScope.launch(context = dispatchers.io) {
             launchWithExceptionHandle {
-                tasksRepository.getTaskDetails(id)
-            }.onSuccess { result ->
+                tasksRepository.updateTask(id, task)
+            }.onSuccess {
                 withContext(viewModelScope.coroutineContext) {
-                    task.postValue(result)
                     loading.value = false
                 }
             }.onFailure {
@@ -42,13 +45,14 @@ class TaskDetailViewModel @Inject constructor(
         }
     }
 
-    fun setStatus(id: Int, isCompleted: Boolean) {
-        jobStatus = viewModelScope.launch(context = dispatchers.io) {
+    fun getSubjects(){
+        jobGettingSubjects = viewModelScope.launch(context = dispatchers.io) {
             launchWithExceptionHandle {
-                if (isCompleted) {
-                    tasksRepository.setCompleted(id)
-                } else {
-                    tasksRepository.setUncomplete(id)
+                subjectsRepository.getSubjects()
+            }.onSuccess { result ->
+                withContext(viewModelScope.coroutineContext) {
+                    subjectList.postValue(result)
+                    loading.value = false
                 }
             }.onFailure {
                 withContext(viewModelScope.coroutineContext) {
@@ -66,7 +70,7 @@ class TaskDetailViewModel @Inject constructor(
 
     override fun onCleared() {
         super.onCleared()
-        jobTaskDetails?.cancel()
-        jobStatus?.cancel()
+        jobTaskUpdate?.cancel()
+        jobGettingSubjects?.cancel()
     }
 }

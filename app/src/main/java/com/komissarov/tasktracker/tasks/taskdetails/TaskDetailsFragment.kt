@@ -5,11 +5,13 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -19,6 +21,7 @@ import com.komissarov.tasktracker.App
 import com.komissarov.tasktracker.R
 import com.komissarov.tasktracker.databinding.FragmentRegisterBinding
 import com.komissarov.tasktracker.databinding.FragmentTaskDetailsBinding
+import timber.log.Timber
 import java.text.SimpleDateFormat
 import javax.inject.Inject
 
@@ -41,7 +44,6 @@ class TaskDetailsFragment : Fragment(R.layout.fragment_task_details) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
         (requireActivity().application as App).appComponent.inject(this)
     }
 
@@ -89,19 +91,38 @@ class TaskDetailsFragment : Fragment(R.layout.fragment_task_details) {
         binding.taskDetailsBackArrow.setOnClickListener {
             findNavController().navigateUp()
         }
-        viewModel.getTaskDetails(taskId)
-
 
         binding.taskDetailsDelete.setOnClickListener {
             val showPopUp = TaskDeleteDialogFragment()
+            showPopUp.arguments = bundleOf(ARG_TASK_ID to taskId)
             showPopUp.show((activity as AppCompatActivity).supportFragmentManager, "showPopUp")
         }
 
+        binding.taskDetailsUpdate.setOnClickListener {
+            val bundle = bundleOf(
+                ARG_TASK_ID to taskId,
+                ARG_TASK_TITLE to binding.taskTitle.text,
+                ARG_SUBJECT_NAME to binding.taskSubjectTitle.text,
+                ARG_TASK_DEADLINE_DATE to binding.taskDeadlineDateTitle.text,
+                ARG_TASK_DEADLINE_TIME to binding.taskDeadlineTimeTitle.text,
+                ARG_TASK_DESCRIPTION to binding.taskDescriptionTitle.text,
+                ARG_TASK_LINKS to binding.taskLinksTitle.text
+            )
+            findNavController().navigate(
+                R.id.action_taskDetailFragment_to_taskUpdateFragment,
+                bundle
+            )
+        }
+        viewModel.getTaskDetails(taskId)
     }
-
-
 
     companion object {
         const val ARG_TASK_ID = "taskId"
+        const val ARG_TASK_TITLE = "title"
+        const val ARG_SUBJECT_NAME = "subj"
+        const val ARG_TASK_DEADLINE_DATE = "date"
+        const val ARG_TASK_DEADLINE_TIME = "time"
+        const val ARG_TASK_DESCRIPTION = "description"
+        const val ARG_TASK_LINKS = "links"
     }
 }

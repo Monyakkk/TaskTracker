@@ -99,13 +99,7 @@
                 android:text="Войти"
                 android:textAppearance="@style/TextBody.Button" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="48dp"
-                android:gravity="center"
-                android:text="&lt;u&gt;Восстановить пароль&lt;/u&gt;"
-                android:textAppearance="@style/TextBody.Type3" />
+
 
         </LinearLayout>
     </ScrollView>

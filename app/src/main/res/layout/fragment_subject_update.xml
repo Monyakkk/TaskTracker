@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/subjectUpdateBackArrow"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/back_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/mainTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:gravity="center"
+                android:text="Редактировать предмет"
+                android:textAppearance="@style/TextHeaderType1.Blue24" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/subjectTeacherContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            tools:visibility="visible"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Преподаватель"
+                android:textAppearance="@style/TextBody.Type4"
+                android:textColor="@color/secondary_text" />
+
+            <EditText
+                android:id="@+id/subjectUpdateTeacher"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:hint="ФИО преподавателя"
+                android:textColorHint="@color/secondary_text"
+                android:textSize="16sp"
+                android:textColor="@color/secondary_text"
+                android:background="@drawable/edittext_background"
+                android:padding="12dp"
+                android:layout_marginBottom="4dp"
+                tools:ignore="LabelFor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/subjectContactsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            tools:visibility="visible"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Контакты"
+                android:textAppearance="@style/TextBody.Type4"
+                android:textColor="@color/secondary_text" />
+
+            <EditText
+                android:id="@+id/subjectUpdateContacts"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:hint="Введите текст"
+                android:textColorHint="@color/secondary_text"
+                android:textSize="16sp"
+                android:textColor="@color/secondary_text"
+                android:background="@drawable/edittext_background"
+                android:padding="12dp"
+                android:layout_marginBottom="4dp"
+                tools:ignore="LabelFor" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/subjectDescriptionContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            tools:visibility="visible"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Описание"
+                android:textAppearance="@style/TextBody.Type4"
+                android:textColor="@color/secondary_text" />
+
+            <EditText
+                android:id="@+id/subjectUpdateDescription"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:minHeight="88dp"
+                android:hint="Введите текст"
+                android:gravity="top"
+                android:textColorHint="@color/secondary_text"
+                android:textSize="16sp"
+                android:textColor="@color/secondary_text"
+                android:background="@drawable/edittext_background"
+                android:padding="12dp"
+                android:layout_marginBottom="4dp"
+                tools:ignore="LabelFor" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/subjectUpdateSaveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/selector_button"
+            android:paddingHorizontal="80dp"
+            android:paddingVertical="6dp"
+            android:text="Сохранить"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="@style/TextBody.Button" />
+
+    </LinearLayout>
+</ScrollView>

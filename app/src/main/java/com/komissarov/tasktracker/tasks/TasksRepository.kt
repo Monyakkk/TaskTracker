@@ -28,4 +28,13 @@ class TasksRepository @Inject constructor(private val service: ApiService) {
     suspend fun postTask(task: PostTask): PutTask {
         return service.postTask(task)
     }
+
+    suspend fun deleteTask(id: Int) {
+        return service.deleteTask(id)
+    }
+
+    suspend fun updateTask(id: Int, putTask: PutTask): PutTask {
+        return service.putTask(id, putTask)
+    }
+
 }

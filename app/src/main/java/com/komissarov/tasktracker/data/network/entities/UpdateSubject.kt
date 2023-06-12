@@ -42,7 +42,7 @@ class UpdateSubject (
      */
     @SerializedName("assessment_type")
     @Expose
-    val assessmentType: AssessmentTypeEnum?,
+    val assessmentType: String?,
     /**
      * Дополнительная информация
      *

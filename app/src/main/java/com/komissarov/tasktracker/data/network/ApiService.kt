@@ -137,7 +137,10 @@ interface ApiService {
 
     @Headers(AUTH_HEADER_KEY)
     @PUT("api/subjects/{id}/")
-    suspend fun putSubject(@Path("id") id: Int, @Body subject: UpdateSubject): UpdateSubject
+    suspend fun putSubject(
+        @Path("id") id: Int,
+        @Body subject: UpdateSubject
+    ): UpdateSubject
 
     @Headers(AUTH_HEADER_KEY)
     @PATCH("api/subjects/{id}/")

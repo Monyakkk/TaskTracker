@@ -1,40 +1,37 @@
-package com.komissarov.tasktracker.subjects
+package com.komissarov.tasktracker.subjects.subjectupdate
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.komissarov.tasktracker.CoroutineDispatchers
-import com.komissarov.tasktracker.data.network.entities.SubjectList
-import com.komissarov.tasktracker.data.network.entities.SubjectTitle
-import com.komissarov.tasktracker.data.network.entities.TaskList
+import com.komissarov.tasktracker.data.network.entities.Subject
+import com.komissarov.tasktracker.data.network.entities.UpdateSubject
 import com.komissarov.tasktracker.launchWithExceptionHandle
+import com.komissarov.tasktracker.subjects.SubjectsRepository
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
-import java.util.*
 import javax.inject.Inject
 
-class SubjectsViewModel @Inject constructor(
+class SubjectUpdateViewModel @Inject constructor(
     private val subjectsRepository: SubjectsRepository,
     private val dispatchers: CoroutineDispatchers,
 ) : ViewModel() {
 
     private val errorMessage = MutableLiveData<String>()
-    val subjectList = MutableLiveData<List<SubjectList>>()
-    private var job: Job? = null
+    private val subjectLiveData = MutableLiveData<UpdateSubject>()
+    private var jobUpdateSubject: Job? = null
     private val loading = MutableLiveData<Boolean>()
 
-    fun getAllSubjects() {
-        job = viewModelScope.launch(context = dispatchers.io) {
+    fun updateSubject(id: Int, subject: UpdateSubject) {
+        jobUpdateSubject = viewModelScope.launch(context = dispatchers.io) {
             launchWithExceptionHandle {
-                subjectsRepository.getSubjects() ?: emptyList()
+                subjectsRepository.updateSubject(id, subject)
             }.onSuccess { result ->
                 withContext(viewModelScope.coroutineContext) {
-                    subjectList.postValue(result)
+                    subjectLiveData.postValue(result)
                     loading.value = false
-
                 }
             }.onFailure {
                 withContext(viewModelScope.coroutineContext) {
@@ -44,16 +41,14 @@ class SubjectsViewModel @Inject constructor(
         }
     }
 
-
     private fun onError(error: Throwable) {
-        Timber.tag("SubjectsViewModel").e(error)
+        Timber.tag("SubjectDetailViewModel").e(error)
         errorMessage.value = error.message.toString()
         loading.value = false
     }
 
     override fun onCleared() {
         super.onCleared()
-        job?.cancel()
+        jobUpdateSubject?.cancel()
     }
-
 }

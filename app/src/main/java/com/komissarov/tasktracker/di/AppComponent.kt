@@ -10,9 +10,12 @@ import com.komissarov.tasktracker.login.confirm.ConfirmationFragment
 import com.komissarov.tasktracker.mainpage.MainActivity
 import com.komissarov.tasktracker.subjects.SubjectsFragment
 import com.komissarov.tasktracker.subjects.subjectdetails.SubjectDetailsFragment
+import com.komissarov.tasktracker.subjects.subjectupdate.SubjectUpdateFragment
 import com.komissarov.tasktracker.tasks.TasksFragment
 import com.komissarov.tasktracker.tasks.taskcreation.TaskCreationFragment
+import com.komissarov.tasktracker.tasks.taskdetails.TaskDeleteDialogFragment
 import com.komissarov.tasktracker.tasks.taskdetails.TaskDetailsFragment
+import com.komissarov.tasktracker.tasks.taskupdate.TaskUpdateFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -55,4 +58,10 @@ interface AppComponent {
     fun inject(fragment: SubjectDetailsFragment)
 
     fun inject(fragment: TaskCreationFragment)
+
+    fun inject(fragment: TaskDeleteDialogFragment)
+
+    fun inject(fragment: TaskUpdateFragment)
+
+    fun inject(fragment: SubjectUpdateFragment)
 }

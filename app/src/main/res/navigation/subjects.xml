@@ -17,9 +17,16 @@
         android:id="@+id/subjectDetailsFragment"
         android:name="com.komissarov.tasktracker.subjects.subjectdetails.SubjectDetailsFragment"
         android:label="SubjectDetailsFragment">
+        <action
+            android:id="@+id/action_subjectDetailsFragment_to_subjectUpdateFragment"
+            app:destination="@id/subjectUpdateFragment" />
         <argument
             android:name="subjectId"
             app:argType="integer"
             android:defaultValue="0" />
     </fragment>
+    <fragment
+        android:id="@+id/subjectUpdateFragment"
+        android:name="com.komissarov.tasktracker.subjects.subjectupdate.SubjectUpdateFragment"
+        android:label="SubjectUpdateFragment" />
 </navigation>

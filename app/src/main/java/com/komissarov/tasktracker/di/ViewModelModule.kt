@@ -7,9 +7,12 @@ import com.komissarov.tasktracker.login.register.RegisterViewModel
 import com.komissarov.tasktracker.splash.SplashViewModel
 import com.komissarov.tasktracker.subjects.subjectdetails.SubjectDetailsViewModel
 import com.komissarov.tasktracker.subjects.SubjectsViewModel
+import com.komissarov.tasktracker.subjects.subjectupdate.SubjectUpdateViewModel
 import com.komissarov.tasktracker.tasks.TasksViewModel
 import com.komissarov.tasktracker.tasks.taskcreation.TaskCreationViewModel
+import com.komissarov.tasktracker.tasks.taskdetails.TaskDeleteViewModel
 import com.komissarov.tasktracker.tasks.taskdetails.TaskDetailViewModel
+import com.komissarov.tasktracker.tasks.taskupdate.TaskUpdateViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -61,5 +64,20 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(TaskCreationViewModel::class)
     abstract fun bindTaskCreationViewModel(viewModel: TaskCreationViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TaskDeleteViewModel::class)
+    abstract fun bindTaskDeleteViewModel(viewModel: TaskDeleteViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TaskUpdateViewModel::class)
+    abstract fun bindTaskUpdateViewModel(viewModel: TaskUpdateViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SubjectUpdateViewModel::class)
+    abstract fun bindSubjectUpdateViewModel(viewModel: SubjectUpdateViewModel): ViewModel
 
 }

@@ -49,6 +49,8 @@ class TasksViewModel @Inject constructor(
     }
 
 
+
+
     private fun onError(error: Throwable) {
         Timber.tag("TasksViewModel").e(error)
         errorMessage.value = error.message.toString()
@@ -60,32 +62,4 @@ class TasksViewModel @Inject constructor(
         job?.cancel()
     }
 
-    companion object {
-        private val mockList = listOf(
-            TaskList(0, "Таск1", SubjectTitle(0, "Сабж1"), Date(1697062198)),
-            TaskList(1, "1", SubjectTitle(0, "Сабж1"), Date(1697062198)),
-            TaskList(
-                2,
-                "Такая длинная таска что ужас просто интересно влезет или нет",
-                SubjectTitle(0, "Сабж1"),
-                Date(1697062198)
-            ),
-            TaskList(
-                3,
-                "Такая длинная таска что ужас просто интересно влезет или нет",
-                SubjectTitle(0, "Сабж1"),
-                Date(16971485)
-            ),
-            TaskList(
-                4,
-                "Таск1",
-                SubjectTitle(
-                    0,
-                    "Вы только посмотрите, еще и предмет длинный, бедные студенты (ВТПЕиПДБС))"
-                ),
-                Date(7062198)
-            ),
-            TaskList(5, "Таск1", SubjectTitle(0, "Сабж1"), Date(1686607798)),
-        )
-    }
 }

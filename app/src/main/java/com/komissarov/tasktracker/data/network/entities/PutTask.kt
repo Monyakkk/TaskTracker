@@ -6,9 +6,7 @@ import java.util.*
 
 class PutTask (
     /**
-     *
      * (Required)
-     *
      */
     @SerializedName("id")
     @Expose
@@ -28,30 +26,18 @@ class PutTask (
     val subject: Int?,
     /**
      * Срок выполнения
-     *
-     *
-     *
-     *
      */
     @SerializedName("deadline_at")
     @Expose
-    val deadlineAt: Date?,
+    val deadlineAt: String?,
     /**
      * Описание
-     *
-     *
-     *
-     *
      */
     @SerializedName("description")
     @Expose
     val description: String?,
     /**
      * Ссылки
-     *
-     *
-     *
-     *
      */
     @SerializedName("links")
     @Expose

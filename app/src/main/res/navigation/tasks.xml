@@ -20,6 +20,9 @@
         android:id="@+id/taskDetailFragment"
         android:name="com.komissarov.tasktracker.tasks.taskdetails.TaskDetailsFragment"
         android:label="TaskDetailFragment">
+        <action
+            android:id="@+id/action_taskDetailFragment_to_taskUpdateFragment"
+            app:destination="@id/taskUpdateFragment" />
         <argument
             android:name="taskId"
             app:argType="integer"
@@ -29,4 +32,8 @@
         android:id="@+id/taskCreationFragment"
         android:name="com.komissarov.tasktracker.tasks.taskcreation.TaskCreationFragment"
         android:label="TaskCreationFragment" />
+    <fragment
+        android:id="@+id/taskUpdateFragment"
+        android:name="com.komissarov.tasktracker.tasks.taskupdate.TaskUpdateFragment"
+        android:label="TaskUpdateFragment" />
 </navigation>
